@@ -79,7 +79,7 @@ const YogaEdit = () => {
         }}>
           {/* <HoverContainer> */}
             <div style={{
-              padding: '2rem',
+              // padding: '2rem',
               // background: 'white',
               borderRadius: '8px',
               border: 'solid 2px #0b0b0b',

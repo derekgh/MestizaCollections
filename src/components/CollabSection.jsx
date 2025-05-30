@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import louisImg from '../assets/Louis-1.webp';
+import louisImg from '../assets/LOUIS-1.webp';
 import background2 from '../assets/background2.png';
 
 const CollabSection = () => {
