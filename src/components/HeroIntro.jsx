@@ -9,7 +9,7 @@ const FADE_TRANSITION_DURATION = 1000
 // const SCROLL_DURATION = 1200 // Increased for smoother scroll
 
 const HeroIntro = () => {
-  const [borderVisible, setBorderVisible] = useState(false)
+  // const [borderVisible, setBorderVisible] = useState(false)
   const [showAnim, setShowAnim] = useState(false)
   const [animOpacity, setAnimOpacity] = useState(0)
   const [imagesPreloaded, setImagesPreloaded] = useState(false)
@@ -89,13 +89,13 @@ const HeroIntro = () => {
     console.log('Starting animation sequence')
     
     // Reset everything first
-    setBorderVisible(false)
+    // setBorderVisible(false)
     setShowAnim(false)
     setAnimOpacity(0)
 
     // Start animation sequence
     requestAnimationFrame(() => {
-      setBorderVisible(true)
+      // setBorderVisible(true)
       
       setTimeout(() => {
         setShowAnim(true)
@@ -141,7 +141,7 @@ const HeroIntro = () => {
             startAnimation()
           } else if (!entry.isIntersecting) {
             // Reset state when not visible
-            setBorderVisible(false)
+            // setBorderVisible(false)
             setShowAnim(false)
             setAnimOpacity(0)
           }
@@ -169,7 +169,7 @@ const HeroIntro = () => {
         height: '100vh',
       }}
     >
-      <div className={`page-border ${borderVisible ? 'animate' : ''}`} />
+      {/* <div className={`page-border ${borderVisible ? 'animate' : ''}`} /> */}
       {showAnim && (
         <img
           src={logoAnim2}

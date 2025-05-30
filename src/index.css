@@ -491,6 +491,8 @@ a:hover {
   z-index: 2;
   mix-blend-mode: multiply;
   filter: contrast(2);
+  border: solid black 2px;
+border-radius: 0.25rem;
 }
 
 .parallax-section {
