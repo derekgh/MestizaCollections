@@ -49,7 +49,7 @@ const CallToAction = () => {
             style={{
               padding: '0.75rem 1.5rem',
               marginRight: '1rem',
-              border: '1px solid #ccc',
+              border: '1px solid rgb(30, 30, 30)',
               borderRadius: '4px',
               fontSize: '1rem',
               minWidth: '300px'

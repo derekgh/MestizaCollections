@@ -43,3 +43,7 @@
   color: #888;
 }
 
+input {
+  background: none;
+  color: black;
+}

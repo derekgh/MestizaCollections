@@ -539,3 +539,7 @@ a:hover {
   padding: 0;
   filter: drop-shadow(0 1rem 1rem #1c1c1c63);
 }
+
+.newsletter-form {
+  mix-blend-mode: multiply;
+}
