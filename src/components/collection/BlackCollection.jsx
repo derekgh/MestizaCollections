@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
+import Slider from 'react-slick'
+import Lightbox from 'yet-another-react-lightbox'
+import 'yet-another-react-lightbox/styles.css'
+
 import Black1 from '../../assets/collections/Black_1.jpg'
 import Black2 from '../../assets/collections/Black_2.jpg'
 import Black3 from '../../assets/collections/Black_3.jpg'
 import Black4 from '../../assets/collections/Black_4.png'
-
 import background1 from '../../assets/background1.png'
-import background2 from '../../assets/background2.png'
-
-import Slider from 'react-slick'
 
 const sliderSettings = {
   centerMode: true,
-  centerPadding: '60px',
+  centerPadding: '25rem',
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
@@ -57,6 +57,18 @@ const BlackCollection = () => {
   const [titleVisible, setTitleVisible] = useState(false)
   const [sliderVisible, setSliderVisible] = useState(false)
   const [textVisible, setTextVisible] = useState(false)
+  
+  // Lightbox state
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+
+  // Image array for lightbox
+  const images = [
+    { src: Black1, alt: 'Mestiza Noir Collection 1' },
+    { src: Black2, alt: 'Mestiza Noir Collection 2' },
+    { src: Black3, alt: 'Mestiza Noir Collection 3' },
+    { src: Black4, alt: 'Mestiza Noir Collection 4' },
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,66 +98,84 @@ const BlackCollection = () => {
     }
   }, [])
 
+  const handleImageClick = (index) => {
+    setLightboxIndex(index)
+    setLightboxOpen(true)
+  }
+
   const descriptionText = "Spirited Reycled Nylon Tricot Mesh | Matte Nylon Spandex | Solid Matte | Nylon Spandex Tricot | Ada | Stretch Lace | Sage Power Mesh | Nylon Spandex Mesh | Sage Delight | Lightweight Nylon Spandex | Tricot | Power Mesh | Microfiber Nylon | Delight Lightweight"
 
   return (
-    <section
-      className="black-collection"
-      style={{
-        backgroundImage: `url(${background1})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
-      <div className="container" style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-        transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
-      }}>
-        <div className="collection" style={{
-          opacity: titleVisible ? 1 : 0,
-          transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',
+    <>
+      <section
+        className="black-collection"
+        style={{
+          backgroundImage: `url(${background1})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        <div className="container" style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
         }}>
-          <h2>Mestiza Noir Collection</h2>
-          {/* <AnimatedText text={descriptionText} isVisible={textVisible} /> */}
-        </div>
+          <div className="collection" style={{
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+          }}>
+            <h2>Mestiza Noir Collection</h2>
+            {/* <AnimatedText text={descriptionText} isVisible={textVisible} /> */}
+          </div>
 
-        <div style={{
-          opacity: sliderVisible ? 1 : 0,
-          transform: sliderVisible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
-        }}>
-          <Slider {...sliderSettings}>
-            {[Black1, Black2, Black3, Black4].map((img, i) => (
-              <div key={i}>
-                <img
-                  src={img}
-                  alt={`Black Collection ${i + 1}`}
-                  style={{
-                    width: '100%',
-                    maxWidth: 320,
-                    height: 400,
-                    objectFit: 'cover',
-                    borderRadius: '1rem',
-                    boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
-                    margin: '0 auto',
-                    transition: 'transform 0.3s ease-out',
-                    ':hover': {
-                      transform: 'scale(1.05)'
-                    }
-                  }}
-                />
-              </div>
-            ))}
-          </Slider>
+          <div style={{
+            opacity: sliderVisible ? 1 : 0,
+            transform: sliderVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+          }}>
+            <Slider {...sliderSettings}>
+              {images.map((img, i) => (
+                <div key={i}>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    onClick={() => handleImageClick(i)}
+                    style={{
+                      width: '100%',
+                      maxWidth: 320,
+                      height: 400,
+                      objectFit: 'cover',
+                      borderRadius: '1rem',
+                      boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+                      margin: '0 auto',
+                      transition: 'transform 0.3s ease-out',
+                      cursor: 'pointer',
+                      ':hover': {
+                        transform: 'scale(1.05)'
+                      }
+                    }}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={images}
+        animation={{ fade: 300 }}
+        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+      />
+    </>
   )
 }
 
-export default BlackCollection 
+export default BlackCollection

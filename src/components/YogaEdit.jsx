@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import background1 from '../assets/background1.png' // Import background image
+// import background1 from '../assets/background1.png' // Import background image
 
 const HoverContainer = ({ children }) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -58,33 +58,35 @@ const YogaEdit = () => {
     <>
       <section
         className="yoga-edit"
-        style={{
-          backgroundImage: `url(${background1})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          width: '100vw',
-          height: '100vh',
-        }}
+        // style={{
+        //   backgroundImage: `url(${background1})`,
+        //   backgroundSize: 'cover',
+        //   backgroundPosition: 'center',
+        //   backgroundRepeat: 'no-repeat',
+        //   width: '100vw',
+        //   height: '100vh',
+        // }}
       >
         {/* <div className="page-borderr" /> */}
 
-        <div className="container" style={{
+        <div className="container yoga-container" style={{
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.8s ease-out, transform 0.8s ease-out',
-          borderRadius: '8px',
-          overflow: 'hidden',
-          position: 'relative'
+          // borderRadius: '8px',
+          // overflow: 'hidden',
+          // position: 'relative'
         }}>
           {/* <HoverContainer> */}
-            <div style={{
-              // padding: '2rem',
-              // background: 'white',
-              borderRadius: '8px',
-              border: 'solid 2px #0b0b0b',
-              padding: '9rem'
-            }}>
+            <div className="yoga-content-box"
+            // style={{
+            //   // padding: '2rem',
+            //   // background: 'white',
+            //   borderRadius: '8px',
+            //   border: 'solid 2px #0b0b0b',
+            //   padding: '9rem'
+            // }}
+            >
               <h2 style={{
                 opacity: titleVisible ? 1 : 0,
                 transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',

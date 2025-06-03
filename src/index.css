@@ -16,8 +16,10 @@ html {
   margin: 0;
   padding: 0;
   /* Remove overflow: hidden to allow scrolling */
-  overflow: hidden; /* Only hide horizontal overflow */
-  overflow-y: auto; /* Allow vertical scrolling */
+  overflow: hidden;
+  /* Only hide horizontal overflow */
+  overflow-y: auto;
+  /* Allow vertical scrolling */
 }
 
 p,
@@ -51,14 +53,15 @@ h1 {
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 
 /* Main container for scroll snapping */
 main {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Change from height to min-height */
+  min-height: 100vh;
+  /* Change from height to min-height */
   scroll-behavior: smooth;
   overflow-y: auto;
   /* Temporarily disable scroll-snap during programmatic scrolling */
@@ -123,7 +126,9 @@ a:hover {
   align-items: center;
   min-height: 100vh;
   position: relative;
-  background: linear-gradient(155deg, #e9f1f7 0%, #fef8f4 50%, #f3e3d7 100%);
+  background: url('./assets/background1.png') center center/cover no-repeat;
+  width: 100vw;
+  height: 100vh;
 }
 
 .call-to-action {
@@ -141,6 +146,7 @@ a:hover {
 .dotted-collection {
   background: #fff7f0;
 }
+
 /* 
 .black-collection {
   background: #242424;
@@ -152,7 +158,7 @@ a:hover {
 }
 
 .collection {
-  max-width: 33rem;
+  max-width: 38rem;
   margin: auto;
   text-align: center;
   /* border: solid 1px #8c8c8c4d; */
@@ -167,19 +173,31 @@ a:hover {
 }
 
 .yoga-edit {
-  /* background-color: #ffebd1; */
-  /* background: linear-gradient(145deg, #fff3db, #8a6756); */
-  margin: auto;
+  background: url('./assets/background1.png') center center/cover no-repeat;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* .yoga-edit .container {
+.yoga-edit .container {
   margin: auto;
   text-align: center;
-} */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
 
-.yoga-content {
-  /* max-width: 50rem;
-  margin: auto; */
+.yoga-content-box {
+  border: solid 2px #0b0b0b;
+  padding: 9rem;
+  border-radius: 8px;
+}
+
+.yoga-text p {
+  padding-bottom: 0.6rem;
 }
 
 .yoga-edit .container {
@@ -189,8 +207,8 @@ a:hover {
   /* padding: 2rem; */
   /* border-radius: 0.5rem; */
   color: #202020;
-    /* filter: drop-shadow(0 1rem 2rem); */
-    max-width: 60rem;
+  /* filter: drop-shadow(0 1rem 2rem); */
+  max-width: 60rem;
   text-align: center;
 }
 
@@ -203,13 +221,17 @@ a:hover {
 
 .yoga-text {
   font-size: 1.2rem;
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
+
 /* Layouts */
 .container {
   margin: auto;
   width: 100%;
   /* text-align: center; */
+}
+.container.text-center {
+  margin: auto;
 }
 
 .page-border {
@@ -236,6 +258,7 @@ a:hover {
   opacity: 1;
   pointer-events: none;
 }
+
 .page-border.animate {
   opacity: 1;
   transform: scale(1);
@@ -268,22 +291,24 @@ a:hover {
 
 .collab-section {
   background: url('./assets/background2.png') center center/cover no-repeat;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
 }
 
 /* Image Styles */
 
-.founder-image {
-  bottom: 0;
-  position: absolute;
-  
-}
+
 .founder-image,
 .collab-image,
 .profile-image {
-  max-width: 26rem;
+  max-width: 36rem;
   height: auto;
-  border-radius: 1.5rem 0 0 0;
-  object-fit: cover;
+  /* border-radius: 1.5rem 0 0 0; */
+  /* object-fit: cover; */
   z-index: 0;
   bottom: 0;
   right: 0;
@@ -291,17 +316,18 @@ a:hover {
 }
 
 .profile-image {
-  height: 30rem;
+  height: 40rem;
   width: auto;
+  right: -3rem;
+
 }
 
 /* Text Blocks */
 .founder-text,
-.collab-text,
 .profile-text {
   flex: 1;
   max-width: 800px;
-    padding: 5vw 0 5vw 5vw;
+  padding: 5vw 0 5vw 5vw;
   z-index: 2;
 }
 
@@ -350,8 +376,7 @@ a:hover {
 
 .profile-text p {
   font-size: 1.2rem;
-  /* max-width: 48rem;
-  padding-bottom: 1rem; */
+  padding-bottom: 0.6rem;
   filter: drop-shadow(0 0.2rem 0.2rem #e6e6e6) drop-shadow(0 0.2rem 0.9rem #e6e6e6);
 }
 
@@ -366,23 +391,43 @@ a:hover {
   margin: auto;
 }
 
-/* Media Queries */
-@media (max-width: 1100px) {
+@media (max-width: 800px) {
+  section {
+    padding: 0;
+  }
+
+  .container {
+    padding: 0;
+    margin: auto;
+  }
+
+  .hero-logo {
+    border: none;
+    max-width: 100%;
+  }
+
+  .founder-flex,
+  .profile-flex,
+  .collab-flex {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
 
   .founder-text,
   .profile-text {
-    padding: 4vw 0 4vw 2vw;
-  }
-
-  .founder-image,
-  .profile-image {
-    width: 320px;
-    max-width: 60vw;
+    position: relative;
+    padding: 2rem 1rem;
+    max-width: 100%;
+    text-align: left;
+    margin: auto;
+    height: 100svh;
   }
 
   .founder-text h2,
   .profile-text h2 {
-    font-size: 2.2rem;
+    text-align: left;
+    padding-top: 2rem;
   }
 
   .founder-text h2 span {
@@ -391,78 +436,88 @@ a:hover {
 
   .profile-text h3 {
     font-size: 1.2rem;
+    text-align: center;
   }
-}
-
-@media (max-width: 900px) {
 
   .founder-frame,
   .profile-frame {
-    width: 95vw;
-    padding: 1.5rem 0.5rem;
-  }
-}
-
-@media (max-width: 800px) {
-
-  .founder-flex,
-  .collab-flex {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
+    width: 100vw;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    height: 100svh;
   }
 
   .founder-image,
   .collab-image {
-    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 80svw;
+    height: auto;
+    margin: 0;
+    border-radius: 1.5rem;
+    z-index: 0;
   }
 
-  .founder-text h2,
-  .collab-text h2,
-  .founder-text h3,
-  .collab-text h3,
-  .founder-text p,
-  .collab-text p {
-    /* text-align: center; */
+  .profile-image {
+    bottom: -1.5rem;
+    right: -3rem;
+    position: absolute;
+
+    width: 100%;
+    max-width: 80svw;
+    height: auto;
+    margin: 0;
+    border-radius: 1.5rem;
+    z-index: 0;
   }
-}
 
-@media (max-width: 700px) {
+  .yoga-edit .container {
+    padding: 1rem;
+  }
 
-  .founder-flex,
-  .profile-flex {
+  .yoga-edit .container>div {
+    padding: 2rem 1rem;
+  }
+
+  .yoga-content {
     flex-direction: column;
     align-items: center;
-    min-height: unset;
   }
 
-  .founder-text,
-  .profile-text {
-    padding: 2rem 1rem 1rem 1rem;
-    max-width: 100%;
-    /* text-align: center; */
+  .yoga-text {
+    width: 100%;
+    margin-bottom: 1rem;
   }
 
-  .founder-image,
-  .profile-image {
-    position: static;
-    width: 90vw;
-    max-width: 340px;
-    margin-top: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  .container.text-center {
+    margin: auto;
   }
 
-  /* 
-  .founder-text h2,
-  .founder-text h3,
-  .founder-text p,
-  .profile-text h2,
-  .profile-text h3,
-  .profile-text p {
-    text-align: center;
-  } */
+  .founder-text-paragraphs {
+    max-height: 40svh;
+    filter: drop-shadow(0 0 1rem white);
+    scrollbar-width: thin;
+    overflow: scroll;
+  }
+
+  .collab-text-paragraphs {
+    max-height: 40svh;
+    filter: drop-shadow(0 0 1rem white);
+    scrollbar-width: thin;
+    overflow: scroll;
+  }
+
+  .collection {
+    padding: 0;
+    margin: 0 auto 2rem;
+  }
 }
+
+
+
 
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
@@ -486,13 +541,14 @@ a:hover {
   height: auto;
   display: block;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
+  transform: translateZ(0);
   transition: opacity 0.5s;
   z-index: 2;
   mix-blend-mode: multiply;
   filter: contrast(2);
   border: solid black 2px;
-border-radius: 0.25rem;
+  border-radius: 0.25rem;
 }
 
 .parallax-section {
@@ -528,8 +584,8 @@ border-radius: 0.25rem;
 .profile-frame {
   position: relative;
   z-index: 2;
+  max-width: 90rem;
 }
-
 
 .slick-list {
   position: relative;
@@ -544,4 +600,11 @@ border-radius: 0.25rem;
 
 .newsletter-form {
   mix-blend-mode: multiply;
+}
+
+/* Slick Carousel Customizations */
+.slick-slider .slick-slide:focus,
+.slick-slider .slick-slide div:focus,
+.slick-slider .slick-slide img:focus {
+  outline: none !important;
 }

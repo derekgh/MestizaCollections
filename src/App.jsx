@@ -8,6 +8,7 @@ import DottedCollection from './components/collection/DottedCollection'
 import WhiteCollection from './components/collection/WhiteCollection'
 import GreenCollection from './components/collection/GreenCollection'
 import CallToAction from './components/CallToAction'
+import './components/collection/styles.css'
 
 function App() {
   return (

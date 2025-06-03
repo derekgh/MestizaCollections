@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import mestizaLogo from '../assets/mestizaLogo.png'
+// import mestizaLogo from '../assets/mestizaLogo.png'
 import logoAnim2 from '../assets/logo-anim-2.webp'
 import background1 from '../assets/background1.png' // Import background image
 
@@ -22,95 +22,27 @@ const HeroIntro = () => {
       img.src = src
     })
 
-  // const scrollToNextSection = () => {
-  //   const main = document.querySelector('main')
-    
-  //   // Temporarily disable scroll-snap for smooth programmatic scrolling
-  //   if (main) {
-  //     main.classList.remove('enable-scroll-snap')
-  //     main.style.scrollSnapType = 'none'
-  //   }
-
-  //   // Find the next section (FounderSection should be the second section)
-  //   const allSections = document.querySelectorAll('section')
-  //   const nextSection = allSections[1] // Second section (index 1)
-    
-  //   console.log('All sections found:', allSections.length)
-  //   console.log('Next section:', nextSection)
-    
-  //   if (nextSection) {
-  //     const startPosition = window.pageYOffset
-  //     const targetPosition = nextSection.offsetTop
-  //     const distance = targetPosition - startPosition
-      
-  //     console.log('Scroll from:', startPosition, 'to:', targetPosition)
-      
-  //     const startTime = performance.now()
-
-  //     const animateScroll = (currentTime) => {
-  //       const elapsed = currentTime - startTime
-  //       const progress = Math.min(elapsed / SCROLL_DURATION, 1)
-        
-  //       // Smooth easing function
-  //       const easeInOutCubic = progress < 0.5
-  //         ? 4 * progress * progress * progress
-  //         : 1 - Math.pow(-2 * progress + 2, 3) / 2
-
-  //       const currentPosition = startPosition + (distance * easeInOutCubic)
-  //       window.scrollTo(0, currentPosition)
-
-  //       if (progress < 1) {
-  //         requestAnimationFrame(animateScroll)
-  //       } else {
-  //         // Re-enable scroll-snap after scrolling is complete
-  //         setTimeout(() => {
-  //           if (main) {
-  //             main.style.scrollSnapType = 'y mandatory'
-  //             main.classList.add('enable-scroll-snap')
-  //           }
-  //         }, 100)
-  //       }
-  //     }
-      
-  //     requestAnimationFrame(animateScroll)
-  //   } else {
-  //     console.log('Next section not found')
-  //     // Re-enable scroll-snap even if scroll fails
-  //     setTimeout(() => {
-  //       if (main) {
-  //         main.style.scrollSnapType = 'y mandatory'  
-  //         main.classList.add('enable-scroll-snap')
-  //       }
-  //     }, 100)
-  //   }
-  // }
 
   const startAnimation = () => {
     console.log('Starting animation sequence')
     
-    // Reset everything first
-    // setBorderVisible(false)
+    // Reset animation state
     setShowAnim(false)
     setAnimOpacity(0)
 
     // Start animation sequence
     requestAnimationFrame(() => {
-      // setBorderVisible(true)
+      setShowAnim(true)
       
+      // Fade in the animation
       setTimeout(() => {
-        setShowAnim(true)
-        
-        // Fade in the animation
-        setTimeout(() => {
-          setAnimOpacity(1)
-        }, 50)
+        setAnimOpacity(1)
+      }, 50)
 
-        // After the full 5-second animation, keep the animation visible
-        setTimeout(() => {
-          console.log('Animation complete')
-        }, LOGO_ANIM_DURATION)
-        
-      }, BORDER_ANIM_DURATION) // Border animation duration
+      // Log animation completion
+      setTimeout(() => {
+        console.log('Animation complete')
+      }, LOGO_ANIM_DURATION)
     })
   }
 
@@ -122,15 +54,9 @@ const HeroIntro = () => {
     })
   }, [])
 
-  // Enable scroll-snap by default
-  // useEffect(() => {
-  //   const main = document.querySelector('main')
-  //   if (main) {
-  //     main.classList.add('enable-scroll-snap')
-  //     main.style.scrollSnapType = 'y mandatory'
-  //   }
-  // }, [])
 
+
+  // Handle intersection observer for animation trigger
   useEffect(() => {
     const section = document.querySelector('.hero-intro')
     const observer = new IntersectionObserver(
@@ -147,7 +73,7 @@ const HeroIntro = () => {
           }
         })
       },
-      { threshold: 0.5 } // Increased threshold for better detection
+      { threshold: 0.5 }
     )
 
     if (section) observer.observe(section)
@@ -178,8 +104,6 @@ const HeroIntro = () => {
           style={{
             opacity: animOpacity,
             transition: `opacity ${FADE_TRANSITION_DURATION}ms ease-in-out`,
-            position: 'absolute',
-            transform: 'translateZ(0)',
           }}
         />
       )}

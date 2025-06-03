@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import louisImg from '../assets/LOUIS-1.webp';
-import background2 from '../assets/background2.png';
+// import background2 from '../assets/background2.png';
 
 const CollabSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,7 +57,7 @@ const CollabSection = () => {
     <section className="collab-section parallax-section">
       <div
         className="parallax-image"
-        style={{ backgroundImage: `url(${background2})` }}
+        // style={{ backgroundImage: `url(${background2})` }}
       />
       <div className="profile-frame" style={{
         opacity: isVisible ? 1 : 0,
@@ -76,20 +76,22 @@ const CollabSection = () => {
                 {/* <span>Collaboration</span> */}
               </h2>
               {/* <h3>Coming Soon</h3> */}
-              <p>
-                Born in Chicago and raised in León, Guanajuato, Mexico, Louis Verdad has earned a distinguished reputation in the fashion world for his sophisticated design sensibility and impeccable construction. His refined aesthetic has led him to dress A-list celebrities and grace the covers of some of the industry's most prestigious fashion magazines.
-              </p>
-              <p>
-                In this new collaboration with Mestiza Collection, Louis brings his signature blend of luxury and innovation to a fresh and modern capsule.
-              </p>
-              <p>
-                Inspired by yoga and mindful living, the collection merges high fashion with comfort, offering elevated pieces ideal for movement, lounging, or travel.
-              </p>
-              <p>
-                The line debuts in September 2026 and is currently seeking sales representation in the United States.
-                <br />
-                (Detailed information available upon request.)
-              </p>
+              <div className="collab-text-paragraphs">
+                <p>
+                  Born in Chicago and raised in León, Guanajuato, Mexico, Louis Verdad has earned a distinguished reputation in the fashion world for his sophisticated design sensibility and impeccable construction. His refined aesthetic has led him to dress A-list celebrities and grace the covers of some of the industry's most prestigious fashion magazines.
+                </p>
+                <p>
+                  In this new collaboration with Mestiza Collection, Louis brings his signature blend of luxury and innovation to a fresh and modern capsule.
+                </p>
+                <p>
+                  Inspired by yoga and mindful living, the collection merges high fashion with comfort, offering elevated pieces ideal for movement, lounging, or travel.
+                </p>
+                <p>
+                  The line debuts in September 2026 and is currently seeking sales representation in the United States.
+                  <br />
+                  (Detailed information available upon request.)
+                </p>
+              </div>
             </div>
           </div>
           <img

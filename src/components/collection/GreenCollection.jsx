@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react'
+import Slider from 'react-slick'
+import Lightbox from 'yet-another-react-lightbox'
+import 'yet-another-react-lightbox/styles.css'
+
 import Sage1 from '../../assets/collections/Sage_1.webp'
 import Sage2 from '../../assets/collections/Sage_2.webp'
 import Sage3 from '../../assets/collections/Sage_3.webp'
 import Sage4 from '../../assets/collections/Sage_4.webp'
-import Slider from 'react-slick'
 
 import background1 from '../../assets/background1.png'
 import background2 from '../../assets/background2.png'
 
 const sliderSettings = {
   centerMode: true,
-  centerPadding: '60px',
+  centerPadding: '25rem',
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
@@ -56,6 +59,18 @@ const GreenCollection = () => {
   const [titleVisible, setTitleVisible] = useState(false)
   const [sliderVisible, setSliderVisible] = useState(false)
   const [textVisible, setTextVisible] = useState(false)
+  
+  // Lightbox state
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+
+  // Image array for lightbox
+  const images = [
+    { src: Sage1, alt: 'Mestiza Iceburg Green Collection 1' },
+    { src: Sage2, alt: 'Mestiza Iceburg Green Collection 2' },
+    { src: Sage3, alt: 'Mestiza Iceburg Green Collection 3' },
+    { src: Sage4, alt: 'Mestiza Iceburg Green Collection 4' },
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,66 +100,84 @@ const GreenCollection = () => {
     }
   }, [])
 
+  const handleImageClick = (index) => {
+    setLightboxIndex(index)
+    setLightboxOpen(true)
+  }
+
   const descriptionText = "Spirited Reycled Nylon Tricot Mesh | Matte Nylon Spandex | Solid Matte | Nylon Spandex Tricot | Ada | Stretch Lace | Sage Power Mesh | Nylon Spandex Mesh | Sage Delight | Lightweight Nylon Spandex | Tricot | Power Mesh | Microfiber Nylon | Delight Lightweight"
 
   return (
-    <section 
-      className="green-collection"
-      style={{
-        backgroundImage: `url(${background2})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
-      <div className="container" style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-        transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
-      }}>
-        <div className="collection" style={{
-          opacity: titleVisible ? 1 : 0,
-          transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',
+    <>
+      <section 
+        className="green-collection"
+        style={{
+          backgroundImage: `url(${background2})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        <div className="container" style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
         }}>
-          <h2>Mestiza Iceburg Green Collection</h2>
-          {/* <AnimatedText text={descriptionText} isVisible={textVisible} /> */}
-        </div>
+          <div className="collection" style={{
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+          }}>
+            <h2>Mestiza Iceburg Green Collection</h2>
+            {/* <AnimatedText text={descriptionText} isVisible={textVisible} /> */}
+          </div>
 
-        <div style={{
-          opacity: sliderVisible ? 1 : 0,
-          transform: sliderVisible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
-        }}>
-          <Slider {...sliderSettings}>
-            {[Sage1, Sage2, Sage3, Sage4].map((img, i) => (
-              <div key={i}>
-                <img 
-                  src={img} 
-                  alt={`Green Collection ${i + 1}`} 
-                  style={{ 
-                    width: '100%', 
-                    maxWidth: 320, 
-                    height: 400, 
-                    objectFit: 'cover', 
-                    borderRadius: '1rem', 
-                    boxShadow: '0 4px 24px rgba(0,0,0,0.08)', 
-                    margin: '0 auto',
-                    transition: 'transform 0.3s ease-out',
-                    ':hover': {
-                      transform: 'scale(1.05)'
-                    }
-                  }} 
-                />
-              </div>
-            ))}
-          </Slider>
+          <div style={{
+            opacity: sliderVisible ? 1 : 0,
+            transform: sliderVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+          }}>
+            <Slider {...sliderSettings}>
+              {images.map((img, i) => (
+                <div key={i}>
+                  <img 
+                    src={img.src} 
+                    alt={img.alt}
+                    onClick={() => handleImageClick(i)}
+                    style={{ 
+                      width: '100%', 
+                      maxWidth: 320, 
+                      height: 400, 
+                      objectFit: 'cover', 
+                      borderRadius: '1rem', 
+                      boxShadow: '0 4px 24px rgba(0,0,0,0.08)', 
+                      margin: '0 auto',
+                      transition: 'transform 0.3s ease-out',
+                      cursor: 'pointer',
+                      ':hover': {
+                        transform: 'scale(1.05)'
+                      }
+                    }} 
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={images}
+        animation={{ fade: 300 }}
+        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+      />
+    </>
   )
 }
 
-export default GreenCollection 
+export default GreenCollection

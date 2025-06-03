@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import fabiolaImg from '../assets/Fabiola.webp';
-import background1 from '../assets/background1.png';
+// import background1 from '../assets/background1.png'; // Import background image
 
 const FounderSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,7 +9,7 @@ const FounderSection = () => {
 
   useEffect(() => {
     let animationFrameId = null;
-  
+
     const handleScroll = () => {
       if (animationFrameId) return;
       animationFrameId = requestAnimationFrame(() => {
@@ -31,7 +31,7 @@ const FounderSection = () => {
             setIsVisible(false);
             setImageVisible(false);
             setTextVisible(false);
-            
+
             // Trigger animations with a small delay to ensure reset is visible
             requestAnimationFrame(() => {
               setIsVisible(true);
@@ -51,7 +51,7 @@ const FounderSection = () => {
 
     const section = document.querySelector('.founder-section');
     if (section) observer.observe(section);
-  
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -59,13 +59,13 @@ const FounderSection = () => {
       if (section) observer.unobserve(section);
     };
   }, []);
-  
+
 
   return (
     <section className="founder-section parallax-section">
       <div
         className="parallax-image"
-        style={{ backgroundImage: `url(${background1})` }}
+      // style={{ backgroundImage: `url(${background1})` }}
       />
       <div className="profile-frame" style={{
         opacity: isVisible ? 1 : 0,
@@ -81,12 +81,14 @@ const FounderSection = () => {
             <h2>Fabiola Karamemis</h2>
             {/* <h3>About Her Vision</h3> */}
             <div className="profile-title">CEO &amp; Founder</div>
-            <p>
-            A native of Mexico City, she now resides in Los Angeles, California, where she is pursuing one of her greatest dreams—the Mestiza Collection. With the support of her husband, a hotel industry entrepreneur, she is embracing this new chapter as a businesswoman with passion and purpose.            </p>
-            <p>
-            Frequent travel between Mexico, Los Angeles, and Tulum has shaped her relaxed, effortlessly chic style—an authentic reflection of her energy and lifestyle. She is a certified stylist and recently earned a business degree from a university in Mexico City.            </p>
-            <p>
-            This collaboration is especially meaningful to her, as it aligns with her mission to inspire women to feel confident, healthy, and beautiful—inside and out.            </p>
+            <div className="founder-text-paragraphs">
+              <p>
+              A native of Mexico City, she now resides in Los Angeles, California, where she is pursuing one of her greatest dreams—the Mestiza Collection. With the support of her husband, a hotel industry entrepreneur, she is embracing this new chapter as a businesswoman with passion and purpose.            </p>
+              <p>
+              Frequent travel between Mexico, Los Angeles, and Tulum has shaped her relaxed, effortlessly chic style—an authentic reflection of her energy and lifestyle. She is a certified stylist and recently earned a business degree from a university in Mexico City.            </p>
+              <p>
+              This collaboration is especially meaningful to her, as it aligns with her mission to inspire women to feel confident, healthy, and beautiful—inside and out.            </p>
+            </div>
           </div>
           <img
             src={fabiolaImg}

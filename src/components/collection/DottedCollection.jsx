@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
+import Slider from 'react-slick'
+import Lightbox from 'yet-another-react-lightbox'
+import 'yet-another-react-lightbox/styles.css'
+
 import DF1 from '../../assets/collections/D_F_1.jpg'
 import DF2 from '../../assets/collections/D_F_2.webp'
 import DF3 from '../../assets/collections/D_F_3.webp'
 import DF4 from '../../assets/collections/D_F_4.jpg'
-import Slider from 'react-slick'
-
-import background1 from '../../assets/background1.png'
 import background2 from '../../assets/background2.png'
 
 const sliderSettings = {
   centerMode: true,
-  centerPadding: '60px',
+  centerPadding: '25rem',
   slidesToShow: 3,
   slidesToScroll: 1,
   autoplay: true,
@@ -56,6 +57,18 @@ const DottedCollection = () => {
   const [titleVisible, setTitleVisible] = useState(false)
   const [sliderVisible, setSliderVisible] = useState(false)
   const [textVisible, setTextVisible] = useState(false)
+  
+  // Lightbox state
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+
+  // Image array for lightbox
+  const images = [
+    { src: DF1, alt: 'Mestiza Microdot Collection 1' },
+    { src: DF2, alt: 'Mestiza Microdot Collection 2' },
+    { src: DF3, alt: 'Mestiza Microdot Collection 3' },
+    { src: DF4, alt: 'Mestiza Microdot Collection 4' },
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,66 +98,84 @@ const DottedCollection = () => {
     }
   }, [])
 
+  const handleImageClick = (index) => {
+    setLightboxIndex(index)
+    setLightboxOpen(true)
+  }
+
   const descriptionText = "Spirited Reycled Nylon Tricot Mesh | Matte Nylon Spandex | Solid Matte | Nylon Spandex Tricot | Ada | Stretch Lace | Sage Power Mesh | Nylon Spandex Mesh | Sage Delight | Lightweight Nylon Spandex | Tricot | Power Mesh | Microfiber Nylon | Delight Lightweight"
 
   return (
-    <section 
-      className="dotted-collection"
-      style={{
-        backgroundImage: `url(${background2})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
-      <div className="container" style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-        transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
-      }}>
-        <div className="collection" style={{
-          opacity: titleVisible ? 1 : 0,
-          transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',
+    <>
+      <section 
+        className="dotted-collection"
+        style={{
+          backgroundImage: `url(${background2})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          width: '100vw',
+          height: '100vh',
+        }}
+      >
+        <div className="container" style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
         }}>
-          <h2>Mestiza Microdot Collection</h2>
-          {/* <AnimatedText text={descriptionText} isVisible={textVisible} /> */}
-        </div>
+          <div className="collection" style={{
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+          }}>
+            <h2>Mestiza Microdot Collection</h2>
+            {/* <AnimatedText text={descriptionText} isVisible={textVisible} /> */}
+          </div>
 
-        <div style={{
-          opacity: sliderVisible ? 1 : 0,
-          transform: sliderVisible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
-        }}>
-          <Slider {...sliderSettings}>
-            {[DF1, DF2, DF3, DF4].map((img, i) => (
-              <div key={i}>
-                <img 
-                  src={img} 
-                  alt={`Dotted Collection ${i + 1}`} 
-                  style={{ 
-                    width: '100%', 
-                    maxWidth: 320, 
-                    height: 400, 
-                    objectFit: 'cover', 
-                    borderRadius: '1rem', 
-                    boxShadow: '0 4px 24px rgba(0,0,0,0.08)', 
-                    margin: '0 auto',
-                    transition: 'transform 0.3s ease-out',
-                    ':hover': {
-                      transform: 'scale(1.05)'
-                    }
-                  }} 
-                />
-              </div>
-            ))}
-          </Slider>
+          <div style={{
+            opacity: sliderVisible ? 1 : 0,
+            transform: sliderVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+          }}>
+            <Slider {...sliderSettings}>
+              {images.map((img, i) => (
+                <div key={i}>
+                  <img 
+                    src={img.src} 
+                    alt={img.alt}
+                    onClick={() => handleImageClick(i)}
+                    style={{ 
+                      width: '100%', 
+                      maxWidth: 320, 
+                      height: 400, 
+                      objectFit: 'cover', 
+                      borderRadius: '1rem', 
+                      boxShadow: '0 4px 24px rgba(0,0,0,0.08)', 
+                      margin: '0 auto',
+                      transition: 'transform 0.3s ease-out',
+                      cursor: 'pointer',
+                      ':hover': {
+                        transform: 'scale(1.05)'
+                      }
+                    }} 
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={images}
+        animation={{ fade: 300 }}
+        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+      />
+    </>
   )
 }
 
-export default DottedCollection 
+export default DottedCollection
