@@ -3,10 +3,11 @@ import Slider from 'react-slick'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
-import Sage1 from '../../assets/collections/Sage_1.webp'
-import Sage2 from '../../assets/collections/Sage_2.webp'
-import Sage3 from '../../assets/collections/Sage_3.webp'
-import Sage4 from '../../assets/collections/Sage_4.webp'
+import Green1 from '../../assets/collections/green_1.webp'
+import Green2 from '../../assets/collections/green_2.webp'
+import Green3 from '../../assets/collections/green_3.webp'
+import Green4 from '../../assets/collections/green_4.webp'
+import Green5 from '../../assets/collections/green_5.webp'
 
 import background1 from '../../assets/background1.png'
 import background2 from '../../assets/background2.png'
@@ -66,10 +67,11 @@ const GreenCollection = () => {
 
   // Image array for lightbox
   const images = [
-    { src: Sage1, alt: 'Mestiza Iceburg Green Collection 1' },
-    { src: Sage2, alt: 'Mestiza Iceburg Green Collection 2' },
-    { src: Sage3, alt: 'Mestiza Iceburg Green Collection 3' },
-    { src: Sage4, alt: 'Mestiza Iceburg Green Collection 4' },
+    { src: Green1, alt: 'Mestiza Iceburg Green Collection 1' },
+    { src: Green2, alt: 'Mestiza Iceburg Green Collection 2' },
+    { src: Green3, alt: 'Mestiza Iceburg Green Collection 3' },
+    { src: Green4, alt: 'Mestiza Iceburg Green Collection 4' },
+    { src: Green5, alt: 'Mestiza Iceburg Green Collection 5' },
   ]
 
   useEffect(() => {
@@ -149,7 +151,7 @@ const GreenCollection = () => {
                     style={{ 
                       width: '100%', 
                       maxWidth: 320, 
-                      height: 400, 
+                      height: 500, 
                       objectFit: 'cover', 
                       borderRadius: '1rem', 
                       boxShadow: '0 4px 24px rgba(0,0,0,0.08)', 

@@ -3,10 +3,11 @@ import Slider from 'react-slick'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
-import DF1 from '../../assets/collections/D_F_1.jpg'
-import DF2 from '../../assets/collections/D_F_2.webp'
-import DF3 from '../../assets/collections/D_F_3.webp'
-import DF4 from '../../assets/collections/D_F_4.jpg'
+import Dotted1 from '../../assets/collections/dotted_1.webp'
+import Dotted2 from '../../assets/collections/dotted_2.jpg'
+import Dotted3 from '../../assets/collections/dotted_3.webp'
+import Dotted4 from '../../assets/collections/dotted_4.jpg'
+import Dotted5 from '../../assets/collections/dotted_5.jpg'
 import background2 from '../../assets/background2.png'
 
 const sliderSettings = {
@@ -64,10 +65,11 @@ const DottedCollection = () => {
 
   // Image array for lightbox
   const images = [
-    { src: DF1, alt: 'Mestiza Microdot Collection 1' },
-    { src: DF2, alt: 'Mestiza Microdot Collection 2' },
-    { src: DF3, alt: 'Mestiza Microdot Collection 3' },
-    { src: DF4, alt: 'Mestiza Microdot Collection 4' },
+    { src: Dotted1, alt: 'Mestiza Microdot Collection 1' },
+    { src: Dotted2, alt: 'Mestiza Microdot Collection 2' },
+    { src: Dotted3, alt: 'Mestiza Microdot Collection 3' },
+    { src: Dotted4, alt: 'Mestiza Microdot Collection 4' },
+    { src: Dotted5, alt: 'Mestiza Microdot Collection 5' },
   ]
 
   useEffect(() => {
@@ -147,7 +149,7 @@ const DottedCollection = () => {
                     style={{ 
                       width: '100%', 
                       maxWidth: 320, 
-                      height: 400, 
+                      height: 500, 
                       objectFit: 'cover', 
                       borderRadius: '1rem', 
                       boxShadow: '0 4px 24px rgba(0,0,0,0.08)', 

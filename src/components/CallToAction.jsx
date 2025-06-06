@@ -42,7 +42,7 @@ const CallToAction = () => {
         }}>
           Be the first to explore the full collection and experience the new era of Mestiza Collections.
         </p>
-        <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+        {/* <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
           <input
             type="email"
             placeholder="Enter your email"
@@ -70,15 +70,15 @@ const CallToAction = () => {
           >
             Subscribe
           </button>
-        </form>
+        </form> */}
         {isLogoLoaded && (
           <img 
             src={logoAnim} 
             alt="Mestiza Collections Logo" 
             style={{
-              maxWidth: '5rem',
+              maxWidth: '10rem',
               height: 'auto',
-              marginTop: '3rem',
+              marginTop: '1rem',
               mixBlendMode: 'multiply',
               filter: 'contrast(2)'
             }}

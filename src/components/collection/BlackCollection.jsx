@@ -3,10 +3,11 @@ import Slider from 'react-slick'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
-import Black1 from '../../assets/collections/Black_1.jpg'
-import Black2 from '../../assets/collections/Black_2.jpg'
-import Black3 from '../../assets/collections/Black_3.jpg'
-import Black4 from '../../assets/collections/Black_4.png'
+import Black1 from '../../assets/collections/black_1.webp'
+import Black2 from '../../assets/collections/black_2.webp'
+import Black3 from '../../assets/collections/black_3.webp'
+import Black4 from '../../assets/collections/black_4.jpg'
+import Black5 from '../../assets/collections/black_5.jpg'
 import background1 from '../../assets/background1.png'
 
 const sliderSettings = {
@@ -68,6 +69,7 @@ const BlackCollection = () => {
     { src: Black2, alt: 'Mestiza Noir Collection 2' },
     { src: Black3, alt: 'Mestiza Noir Collection 3' },
     { src: Black4, alt: 'Mestiza Noir Collection 4' },
+    { src: Black5, alt: 'Mestiza Noir Collection 5' },
   ]
 
   useEffect(() => {
@@ -147,7 +149,7 @@ const BlackCollection = () => {
                     style={{
                       width: '100%',
                       maxWidth: 320,
-                      height: 400,
+                      height: 500,
                       objectFit: 'cover',
                       borderRadius: '1rem',
                       boxShadow: '0 4px 24px rgba(0,0,0,0.08)',

@@ -3,10 +3,12 @@ import Slider from 'react-slick'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
-import MF1 from '../../assets/collections/Casa_Mestiza_1.jpg'
-import MF2 from '../../assets/collections/Casa_Mestiza_2.jpg'
-import MF3 from '../../assets/collections/Casa_Mestiza_3.jpg'
-import MF4 from '../../assets/collections/Casa_Mestiza_4.jpg'
+import Monogram1 from '../../assets/collections/monogram1.webp'
+import Monogram2 from '../../assets/collections/monogram2.jpg'
+import Monogram3 from '../../assets/collections/monogram3.webp'
+import Monogram4 from '../../assets/collections/monogram4.jpg'
+import Monogram5 from '../../assets/collections/monogram5.jpg'
+import Monogram6 from '../../assets/collections/monogram6.jpg'
 import background2 from '../../assets/background2.png'
 
 const sliderSettings = {
@@ -40,10 +42,12 @@ const MonogramSection = () => {
 
   // Image array for lightbox
   const images = [
-    { src: MF1, alt: 'Mestiza Monogram Collection 1' },
-    { src: MF2, alt: 'Mestiza Monogram Collection 2' },
-    { src: MF3, alt: 'Mestiza Monogram Collection 3' },
-    { src: MF4, alt: 'Mestiza Monogram Collection 4' },
+    { src: Monogram1, alt: 'Mestiza Monogram Collection 1' },
+    { src: Monogram2, alt: 'Mestiza Monogram Collection 2' },
+    { src: Monogram3, alt: 'Mestiza Monogram Collection 3' },
+    { src: Monogram4, alt: 'Mestiza Monogram Collection 4' },
+    { src: Monogram5, alt: 'Mestiza Monogram Collection 5' },
+    { src: Monogram6, alt: 'Mestiza Monogram Collection 6' },
   ]
 
   useEffect(() => {
@@ -118,7 +122,7 @@ const MonogramSection = () => {
                     style={{ 
                       width: '100%',
                       maxWidth: 320,
-                      height: 400,
+                      height: 500,
                       objectFit: 'cover',
                       borderRadius: '1rem',
                       boxShadow: '0 4px 24px rgba(0,0,0,0.08)',

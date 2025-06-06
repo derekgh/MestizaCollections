@@ -15,11 +15,8 @@ html {
   color: #333;
   margin: 0;
   padding: 0;
-  /* Remove overflow: hidden to allow scrolling */
   overflow: hidden;
-  /* Only hide horizontal overflow */
   overflow-y: auto;
-  /* Allow vertical scrolling */
 }
 
 p,
@@ -53,7 +50,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: 3rem;
 }
 
 /* Main container for scroll snapping */
@@ -61,10 +58,9 @@ main {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  /* Change from height to min-height */
+  overflow-x: hidden;  
   scroll-behavior: smooth;
   overflow-y: auto;
-  /* Temporarily disable scroll-snap during programmatic scrolling */
   scroll-snap-type: y mandatory;
 }
 
@@ -158,11 +154,11 @@ a:hover {
 }
 
 .collection {
-  max-width: 38rem;
+  /* max-width: 38rem; */
   margin: auto;
   text-align: center;
   /* border: solid 1px #8c8c8c4d; */
-  padding: 2rem;
+  /* padding: 2rem; */
   margin-bottom: 2rem;
   border-radius: 0.5rem;
   /* background: #f0efef52; */
@@ -192,8 +188,9 @@ a:hover {
 
 .yoga-content-box {
   border: solid 2px #0b0b0b;
-  padding: 9rem;
-  border-radius: 8px;
+  padding: 6rem;
+    border-radius: 8px;
+    margin: auto;
 }
 
 .yoga-text p {
@@ -215,7 +212,7 @@ a:hover {
 .yoga-edit h2 {
   padding-bottom: 1rem;
   /* font-size: 2rem; */
-  font-size: 3rem;
+  /* font-size: 3rem; */
 }
 
 

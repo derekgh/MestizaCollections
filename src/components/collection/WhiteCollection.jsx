@@ -3,10 +3,11 @@ import Slider from 'react-slick'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 
-import WHITE1 from '../../assets/collections/White_1.webp'
-import WHITE2 from '../../assets/collections/White_2.webp'
-import WHITE3 from '../../assets/collections/White_3.webp'
-import WHITE4 from '../../assets/collections/White_4.webp'
+import White1 from '../../assets/collections/white_1.jpg'
+import White2 from '../../assets/collections/white_2.webp'
+import White3 from '../../assets/collections/white_3.webp'
+import White5 from '../../assets/collections/white_5.webp'
+import White6 from '../../assets/collections/white_6.webp'
 import background1 from '../../assets/background1.png'
 
 const sliderSettings = {
@@ -64,10 +65,11 @@ const WhiteCollection = () => {
 
   // Image array for lightbox
   const images = [
-    { src: WHITE1, alt: 'Mestiza White Collection 1' },
-    { src: WHITE2, alt: 'Mestiza White Collection 2' },
-    { src: WHITE3, alt: 'Mestiza White Collection 3' },
-    { src: WHITE4, alt: 'Mestiza White Collection 4' },
+    { src: White1, alt: 'Mestiza White Collection 1' },
+    { src: White2, alt: 'Mestiza White Collection 2' },
+    { src: White3, alt: 'Mestiza White Collection 3' },
+    { src: White5, alt: 'Mestiza White Collection 5' },
+    { src: White6, alt: 'Mestiza White Collection 6' },
   ]
 
   useEffect(() => {
@@ -147,7 +149,7 @@ const WhiteCollection = () => {
                     style={{ 
                       width: '100%', 
                       maxWidth: 320, 
-                      height: 400, 
+                      height: 500, 
                       objectFit: 'cover', 
                       borderRadius: '1rem', 
                       boxShadow: '0 4px 24px rgba(0,0,0,0.08)', 
